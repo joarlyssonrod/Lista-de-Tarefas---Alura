@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 
 class FormScreen extends StatefulWidget {
@@ -122,6 +120,12 @@ class _FormScreenState extends State<FormScreen> {
                       print(controllerTask.text);
                       print(controllerDifficulty.text);
                       print(controllerImage.text);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Tarefa Adicionada'),
+                        ),
+                      );
+                      Navigator.pop(context);
                     },
                     child: const Text('Adicionar')),
               ],

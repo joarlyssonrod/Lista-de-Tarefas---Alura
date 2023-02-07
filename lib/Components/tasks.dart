@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:todo_list/Components/difficulty.dart';
+import '/Components/difficulty.dart';
 
 class Tasks extends StatefulWidget {
-  final String nome;
-  final String foto;
-  final int classificacao;
+  final String name;
+  final String photo;
+  final int difficulty;
 
-  const Tasks(this.nome, this.foto, this.classificacao, {Key? key})
+  const Tasks(this.name, this.photo, this.difficulty, {Key? key})
       : super(key: key);
 
   @override
@@ -18,7 +18,7 @@ class _TasksState extends State<Tasks> {
 
   @override
   Widget build(BuildContext context) {
-    int lvlMax = widget.classificacao * 10;
+    int lvlMax = widget.difficulty * 10;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Stack(
@@ -50,7 +50,7 @@ class _TasksState extends State<Tasks> {
                       child: ClipRRect(
                           borderRadius: BorderRadius.circular(4),
                           child: Image(
-                            image: AssetImage(widget.foto),
+                            image: AssetImage(widget.photo),
                             fit: BoxFit.scaleDown,
                           )),
                     ),
@@ -61,14 +61,14 @@ class _TasksState extends State<Tasks> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            widget.nome,
+                            widget.name,
                             style: const TextStyle(
                               fontSize: 22,
                               overflow: TextOverflow.clip,
                             ),
                           ),
                           Difficulty(
-                            classification: widget.classificacao,
+                            classification: widget.difficulty,
                           ),
                         ],
                       ),
@@ -102,8 +102,8 @@ class _TasksState extends State<Tasks> {
                       padding: const EdgeInsets.all(8.0),
                       child: LinearProgressIndicator(
                         color: Colors.white,
-                        value: widget.classificacao > 0
-                            ? ((level / widget.classificacao) / 10)
+                        value: widget.difficulty > 0
+                            ? ((level / widget.difficulty) / 10)
                             : 1,
                       ),
                     ),

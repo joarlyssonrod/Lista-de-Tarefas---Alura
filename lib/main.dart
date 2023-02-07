@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo_list/Screens/form_screen.dart';
-import 'package:todo_list/Screens/initial_screen.dart';
+import '/Data/task_inherited.dart';
+import '/Screens/initial_screen.dart';
 
 void main() {
   runApp(
@@ -20,6 +20,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const InitialScreen();
+    return TaskInherited(child: const InitialScreen());
   }
 }

@@ -125,7 +125,7 @@ class _FormScreenState extends State<FormScreen> {
                           image: NetworkImage(controllerImage.text),
                           fit: BoxFit.cover,
                           errorBuilder: (context, error, stackTrace) {
-                            return Image.asset("assets/images/nophoto.png");
+                            return Image.asset("assets/images/no-photo.jpg");
                           },
                         ),
                       ),
